@@ -4,8 +4,6 @@ import MaxWidthWrapper from '../components/MaxWidthWrapper';
 import { Suspense } from 'react';
 
 async function getToken() {
-  // const clientId = 'evypOMDH8YzRz4lQA0Vlm3Ed787TQsJt6BUNUMoMjqCvh06T0M'; // Replace with your client ID
-  // const clientSecret = 'j7Fv5UaTp1rat9C34MMNWrfYPyYNZHbek2ezB08B'; // Replace with your client secret
   const clientId = process.env.NEXT_PUBLIC_PETFINDER_API_KEY;
   const clientSecret = process.env.NEXT_PUBLIC_PETFINDER_SECRET_KEY;
   const url = 'https://api.petfinder.com/v2/oauth2/token';
@@ -38,14 +36,20 @@ async function getAllDogs(token) {
       Authorization: `Bearer ${token}`,
     },
   })
-    .then(response => response.json())
+    .then(response => {
+      return response.json();
+    })
     .catch(error => {
       console.error('Error:', error);
     });
 }
 
 async function AllDogs({ token }) {
-  const { animals } = await getAllDogs(token);
+  console.log('TOKEN', token);
+  // const { animals } = await getAllDogs(token);
+  const response = await getAllDogs(token);
+  const { animals } = response;
+  console.log('response', response);
 
   return animals?.map(dog => (
     <div className="basis-full md:basis-1/2 lg:basis-1/3">
@@ -74,7 +78,7 @@ const Adopt = async () => {
   return (
     <>
       <img src="" alt="" />
-      <div className="mb-4 bg-red-700 text-white">
+      <div className="mb-4 bg-blue-700 text-white">
         <MaxWidthWrapper>
           <div className="flex gap-10">
             <h2 className="text-4xl mb-4 md:text-6xl">
@@ -89,12 +93,12 @@ const Adopt = async () => {
               </p>
               <div className="flex flex-col md:flex-row gap-4 justify-center mb-4">
                 <Link href="/adopt-faq">
-                  <button className="bg-white h-[50px] px-4 text-red-700">
+                  <button className="bg-white h-[50px] px-4 text-blue-700">
                     Adoption FAQ
                   </button>
                 </Link>
-                <Link href="/adopt-faq">
-                  <button className="bg-white h-[50px] px-4 text-red-700">
+                <Link href="/adopt-application">
+                  <button className="bg-white h-[50px] px-4 text-blue-700">
                     Apply to Adopt
                   </button>
                 </Link>
@@ -116,15 +120,3 @@ const Adopt = async () => {
 };
 
 export default Adopt;
-
-/*
---min-column-width: min(320px, 100%);
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(var(--min-column-width), 1fr));
-grid-column-gap: 32px;
-grid-row-gap: 32px;
-*/
-
-/* NEW CLIENT SECRET: SEPTEMBER 28th @ 11:30 */
-
-// CHECK JC FOR SETTING PICTURES EVEN ON FLEX/GRID

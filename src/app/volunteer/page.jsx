@@ -1,10 +1,11 @@
 import React from 'react';
+import MaxWidthWrapper from '../components/MaxWidthWrapper';
 
 const Volunteer = () => {
   return (
-    <div>
+    <MaxWidthWrapper>
       <h1>This is the volunteer page</h1>
-    </div>
+    </MaxWidthWrapper>
   );
 };
 

@@ -39,11 +39,13 @@ export default function NavBar() {
           <MaxWidthWrapper>
             <div className="w-full h-16 flex justify-between">
               <div className="flex flex-shrink-0 items-center">
-                <img
-                  className="h-8 w-auto"
-                  src="/logo.png"
-                  alt="Your Company"
-                />
+                <Link href="/">
+                  <img
+                    className="h-8 w-auto"
+                    src="/logo.png"
+                    alt="For The Love of Labs Logo"
+                  />
+                </Link>
               </div>
               <div className="hidden lg:ml-6 lg:flex lg:space-x-8 lg:items-center">
                 {navigationItems.map((item, index) => (
@@ -55,7 +57,7 @@ export default function NavBar() {
                     {item.name}
                   </Link>
                 ))}
-                <button className="bg-black text-white py-2 px-4">
+                <button className="bg-blue-700 text-white py-2 px-4">
                   Donate
                 </button>
               </div>
