@@ -16,10 +16,11 @@ export default function SelectMenu({ options, value, setValue, id }) {
       <Select.Portal>
         <Select.Content className="overflow-hidden bg-white rounded-md shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)]">
           <Select.Viewport>
-            {options.map(option => (
+            {options.map((option, index) => (
               <Select.Item
                 value={option}
                 className="text-[13px] leading-none text-violet11 rounded-[3px] flex items-center h-[25px] pr-[35px] pl-[25px] relative select-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:outline-none data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1 cursor-pointer hover:bg-blue-700 hover:text-white"
+                key={index}
               >
                 <Select.ItemText>{option}</Select.ItemText>
               </Select.Item>

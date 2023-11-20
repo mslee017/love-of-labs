@@ -51,8 +51,8 @@ async function AllDogs({ token }) {
   const { animals } = response;
   console.log('response', response);
 
-  return animals?.map(dog => (
-    <div className="basis-full md:basis-1/2 lg:basis-1/3">
+  return animals?.map((dog, index) => (
+    <div className="basis-full md:basis-1/2 lg:basis-1/3" key={index}>
       <a href={dog.url} target="_blank">
         <div className="flex flex-col items-start mb-6 lg:items-start">
           <img
