@@ -109,19 +109,3 @@ export default function Home() {
     </MaxWidthWrapper>
   );
 }
-
-/*
-UI IMPROVEMENTS
-
-HOME PAGE:
-1). Smaller font for the H1 - Find Perfect Match
-
-ADOPT PAGE:
-1). H1 needs to match the other pages in mobile, it is too big
-*/
-
-/*
-APPLY ON SITE
-Search LinkedIn for Employees
-Message directly with a connect as well
-*/
