@@ -25,10 +25,6 @@ const navigationItems = [
     name: 'Events',
     href: 'events',
   },
-  {
-    name: 'Make a Recurring Gift',
-    href: 'recurring',
-  },
 ];
 
 export default function NavBar() {
@@ -51,20 +47,20 @@ export default function NavBar() {
                 {navigationItems.map((item, index) => (
                   <Link
                     href={item.href}
-                    className="inline-flex items-center px-1 pt-1 text-md font-normal text-gray-900"
+                    className="inline-flex items-center px-1 pt-1 text-md font-normal text-radixViolet-12"
                     key={index}
                   >
                     {item.name}
                   </Link>
                 ))}
-                <button className="bg-blue-700 text-white py-2 px-4">
+                <button className="bg-radixPink-9 text-white py-2 px-4 rounded">
                   Donate
                 </button>
               </div>
 
               <div className="-mr-2 flex items-center lg:hidden">
                 {/* Mobile menu button */}
-                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-black hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-black">
+                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-blackhover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-black">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   {open ? (
@@ -83,7 +79,7 @@ export default function NavBar() {
                 <Link
                   href={item.href}
                   key={index}
-                  className="block py-2 pl-3 pr-4 text-base font-medium text-center hover:bg-gray-500 cursor:pointer"
+                  className="block py-2 pl-3 pr-4 text-base font-medium text-center text-radixGray-12 hover:bg-radixViolet-9 hover:text-white hover:cursor-pointer"
                 >
                   {item.name}
                 </Link>

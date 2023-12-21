@@ -12,7 +12,7 @@ const TextArea = ({ label, required = true, ...props }) => {
       <textarea
         id={textAreaId}
         {...props}
-        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 focus:border-blue-700 focus:outline-none"
+        className="bg-radixGray-3 border border-radixGray-7 text-radixGray-12  text-sm rounded-lg block w-full p-2.5 focus:border-radixViolet-7 focus:outline-none hover:bg-radixGray-4"
       />
     </div>
   );

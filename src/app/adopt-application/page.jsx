@@ -5,6 +5,7 @@ import Input from '../components/Input';
 import TextArea from '../components/TextArea';
 import SelectMenu from '../components/SelectMenu';
 import SelectWrapper from '../components/SelectWrapper';
+import supabase from '@/utils/supabase';
 
 const HOMES = ['House', 'Condo', 'Apartment', 'Mobile Home', 'Other'];
 const LIVING_STATUS = ['Own', 'Rent', 'Live w/ Parents'];
@@ -23,6 +24,12 @@ async function postData(url = '', data = {}) {
 }
 
 const AdoptApplication = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [address, setAddress] = useState('');
+  const [city, setCity] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [placeOfEmployment, setPlaceOfEmployment] = useState('');
   const [homes, setHomes] = useState(HOMES[0]);
   const [livingStatus, setLivingStatus] = useState(LIVING_STATUS[0]);
   const [isMoving, setIsMoving] = useState(YES_NO[0]);
@@ -36,53 +43,33 @@ const AdoptApplication = () => {
   const [financialAwareness, setFinancialAwareness] = useState(YES_NO[0]);
   const [isSendingRequest, setIsSendingRequest] = useState(false);
 
-  /* TODO
-   SUBMIT HANDLER,
-   CREATE A LOADER FOR USER
-   RESET VALUES TO DEFAULT AFTER USER HAS CLICKED SUBMIT BUTTON
-   */
-
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
     setIsSendingRequest(true);
-    const payload = {
-      homes,
-      livingStatus,
-      isMoving,
-      childrenAtHome,
-      vaccinated,
-      allowedIndoors,
-      enrollObedience,
-      animalControl,
-      licenseDog,
-      repVisit,
-      financialAwareness,
-    };
 
-    postData('https://example.com/answer', payload).then(data => {
-      console.log(data);
-      setIsSendingRequest(false);
-      setHomes(HOMES[0]);
-      setLivingStatus(LIVING_STATUS[0]);
-      setIsMoving(YES_NO[0]);
-      setChildrenAtHome(YES_NO[0]);
-      setVaccinated(YES_NO[0]);
-      setAllowedIndoors(YES_NO[0]);
-      setEnrollObedience(YES_NO[0]);
-      setAnimalControl(YES_NO[0]);
-      setLicenseDog(YES_NO[0]);
-      setRepVisit(YES_NO[0]);
-      setFinancialAwareness(YES_NO[0]);
-    });
+    const { data, error } = await supabase
+      .from('adoption')
+      .insert([
+        {
+          name,
+          email,
+          address,
+          city,
+          phone_number: phoneNumber,
+          place_employment: placeOfEmployment,
+        },
+      ])
+      .select();
   };
 
   return (
     <MaxWidthWrapper>
       <div className="pb-16">
-        <h1 className="text-4xl pt-12 mb-2">Adoption Application</h1>
-        <hr className="w-100 md:w-1/3 mb-8" />
+        <h1 className="text-4xl sm:text-6xl font-semibold text-radixViolet-12 mb-6 pt-10">
+          Adoption Application
+        </h1>
         <form onSubmit={handleSubmit}>
-          <p className="mb-2">
+          <p className="mb-12 text-radixGray-11">
             PLEASE review our adoption process tab BEFORE completing your
             application to review our requirements. Incomplete applications will
             not be processed. In addition, our initial contact with you will be
@@ -93,12 +80,36 @@ const AdoptApplication = () => {
             Please scroll all the way down to finish the application. Thank you!
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-4">
-            <Input label="Name" autofocus />
-            <Input label="Email" placeholder="test"></Input>
-            <Input label="Address" />
-            <Input label="City, State, Zip" />
-            <Input label="Phone Number" />
-            <Input label="Place of Employment" />
+            <Input
+              label="Name"
+              value={name}
+              onChange={event => setName(event.target.value)}
+            />
+            <Input
+              label="Email"
+              value={email}
+              onChange={event => setEmail(event.target.value)}
+            />
+            <Input
+              label="Address"
+              value={address}
+              onChange={event => setAddress(event.target.value)}
+            />
+            <Input
+              label="City, State, Zip"
+              value={city}
+              onChange={event => setCity(event.target.value)}
+            />
+            <Input
+              label="Phone Number"
+              value={phoneNumber}
+              onChange={event => setPhoneNumber(event.target.value)}
+            />
+            <Input
+              label="Place of Employment"
+              value={placeOfEmployment}
+              onChange={event => setPlaceOfEmployment(event.target.value)}
+            />
             <Input label="Who will be responsible for the dog?" />
             <SelectWrapper>
               <label htmlFor="domain-type">Do you live in a: </label>
@@ -244,7 +255,7 @@ const AdoptApplication = () => {
             <Input label="How did you hear about us?" />
           </div>
           <button
-            className="px-4 py-4 bg-blue-700 text-white w-[200px]"
+            className="px-4 py-4 bg-radixViolet-9 text-white w-[200px] rounded mt-12"
             type="submit"
           >
             Submit
