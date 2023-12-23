@@ -67,7 +67,7 @@ const Foster = () => {
           </li>
           <li>Treat the dog as a member of your family.</li>
         </ul>
-        <div className="flex flex-col gap-4 md:flex-row py-4">
+        <div className="flex flex-col gap-4 md:flex-row py-4 mt-6">
           <Link href="/foster-faq">
             <CommonButton>Foster FAQ</CommonButton>
           </Link>

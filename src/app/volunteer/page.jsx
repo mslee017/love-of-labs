@@ -3,13 +3,8 @@ import React, { useState } from 'react';
 import MaxWidthWrapper from '../components/MaxWidthWrapper';
 import Input from '../components/Input';
 import TextArea from '../components/TextArea';
-import CommonButton from '../components/CommonButton';
 
 const Volunteer = () => {
-  const handleSubmit = () => {
-    //
-  };
-
   return (
     <MaxWidthWrapper>
       <div className="pt-10">
@@ -28,7 +23,7 @@ const Volunteer = () => {
           will get back to you as soon as possible!
         </p>
 
-        <form action={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <Input label="Name" autofocus />
             <Input label="Email" />

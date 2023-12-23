@@ -67,16 +67,16 @@ const FosterApplication = () => {
 
   return (
     <MaxWidthWrapper>
-      <div>
+      <div className="pt-10">
         <h1 className="text-4xl sm:text-6xl font-semibold text-radixViolet-12 mb-6">
           Foster Application
         </h1>
         <form onSubmit={handleSubmit}>
-          <p className="text-radixGray-12">
+          <p className="text-radixGray-12 mb-8">
             Please be sure to scroll all the way down to complete the full
             application
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6 md:mb-12">
             <Input label="Name" autofocus />
             <Input label="Email" />
             <Input label="Address" />

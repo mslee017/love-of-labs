@@ -5,23 +5,11 @@ import Input from '../components/Input';
 import TextArea from '../components/TextArea';
 import SelectMenu from '../components/SelectMenu';
 import SelectWrapper from '../components/SelectWrapper';
-import supabase from '@/utils/supabase';
+import supabase from '../../utils/supabase';
 
 const HOMES = ['House', 'Condo', 'Apartment', 'Mobile Home', 'Other'];
 const LIVING_STATUS = ['Own', 'Rent', 'Live w/ Parents'];
 const YES_NO = ['Yes', 'No'];
-
-async function postData(url = '', data = {}) {
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-
-    body: JSON.stringify(data),
-  });
-  return response.json();
-}
 
 const AdoptApplication = () => {
   const [name, setName] = useState('');
@@ -64,8 +52,8 @@ const AdoptApplication = () => {
 
   return (
     <MaxWidthWrapper>
-      <div className="pb-16">
-        <h1 className="text-4xl sm:text-6xl font-semibold text-radixViolet-12 mb-6 pt-10">
+      <div className="pb-16 pt-10">
+        <h1 className="text-4xl sm:text-6xl font-semibold text-radixViolet-12 mb-6">
           Adoption Application
         </h1>
         <form onSubmit={handleSubmit}>

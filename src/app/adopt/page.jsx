@@ -45,11 +45,8 @@ async function getAllDogs(token) {
 }
 
 async function AllDogs({ token }) {
-  console.log('TOKEN', token);
-  // const { animals } = await getAllDogs(token);
   const response = await getAllDogs(token);
   const { animals } = response;
-  console.log('response', response);
 
   return animals?.map((dog, index) => (
     <div className="basis-full md:basis-1/2 lg:basis-1/3" key={index}>
