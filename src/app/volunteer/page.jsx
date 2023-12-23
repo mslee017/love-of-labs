@@ -1,10 +1,14 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import MaxWidthWrapper from '../components/MaxWidthWrapper';
 import Input from '../components/Input';
 import TextArea from '../components/TextArea';
 
 const Volunteer = () => {
+  const handleSubmit = event => {
+    event.preventDefault();
+  };
+
   return (
     <MaxWidthWrapper>
       <div className="pt-10">

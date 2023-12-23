@@ -11,15 +11,15 @@ const paytoneOne = Paytone_One({
 });
 
 export default function Home() {
-  // useEffect(() => {
-  //   async function fetchAdoptionRequests() {
-  //     let { data: adoption, error } = await supabase
-  //       .from('adoption')
-  //       .select('*');
-  //   }
+  useEffect(() => {
+    async function fetchAdoptionRequests() {
+      let { data: adoption, error } = await supabase
+        .from('adoption')
+        .select('*');
+    }
 
-  //   fetchAdoptionRequests();
-  // }, []);
+    fetchAdoptionRequests();
+  }, []);
 
   return (
     <MaxWidthWrapper>
