@@ -33,8 +33,8 @@ export default function Home() {
               Find Your Perfect Match
             </h1>
             <Link href="/adopt">
-              <button className="py-2 px-2 text-white bg-radixViolet-9 md:py-5 md:px-10 text-xl rounded">
-                Adopt Dog
+              <button className="py-4 px-5 text-white bg-radixViolet-9 md:py-5 md:px-10 text-xl rounded">
+                Adopt a Dog
               </button>
             </Link>
           </div>
