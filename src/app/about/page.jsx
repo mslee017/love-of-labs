@@ -22,7 +22,7 @@ const About = () => {
           <img
             src="undraw_walk_dreaming.svg"
             alt="Dog Graphic"
-            className="w-100 sm:w-[400px]"
+            className="w-100 md:w-[300px]"
           />
         </div>
 

@@ -21,7 +21,7 @@ const Foster = () => {
         <img
           src="undraw_playing_fetch.svg"
           alt="Dog Playing Fetch Graphic"
-          className="pt-6 mb-8"
+          className="pt-6 mb-8 md:w-[350px]"
         />
         <h3 className="text-2xl mb-2 text-radixViolet-12 font-semibold pt-6">
           Foster Home Responsibilities:
