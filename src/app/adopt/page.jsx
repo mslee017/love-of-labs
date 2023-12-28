@@ -89,7 +89,7 @@ const Adopt = async () => {
           interests at heart. We strive to find the best homes possible for our
           dogs, as well as find the right dog for you and your lifestyle
         </p>
-        <p className="mb-4 text-radixGray-11 text-lg">
+        <p className="mb-8 text-radixGray-11 text-lg">
           Please understand that our organization is completely run by unpaid
           volunteers who dedicate their free time to help the dogs. If your
           references are unavailable, it will delay the process, since those
@@ -111,7 +111,7 @@ const Adopt = async () => {
           </Link>
         </div>
       </div>
-      <div className="pt-8">
+      <div className="md:pt-4">
         <h2 className="text-4xl font-semibold mb-8 md:text-5xl text-radixViolet-12">
           Available Dogs
         </h2>
